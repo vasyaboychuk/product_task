@@ -3,7 +3,7 @@ import {urls} from "../config";
 
 const productService={
     getAll: () => axiosService.get(urls.product),
-    create: (car) => axiosService.post(urls.product, car),
+    create: (product) => axiosService.post(urls.product, product),
     getById: (id) => axiosService.get(`${urls.product}/${id}`),
     updateById: (id, product) => axiosService.put(`${urls.product}/${id}`, product),
     deleteById: (id) => axiosService.delete(`${urls.product}/${id}`),

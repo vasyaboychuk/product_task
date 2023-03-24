@@ -6,5 +6,6 @@ router.get('/',controller.getALl);
 
 router.delete('/:id',controller.deleteProduct);
 router.get('/:id',controller.getOneById)
+router.put('/:id',controller.updateProduct)
 
 module.exports=router;

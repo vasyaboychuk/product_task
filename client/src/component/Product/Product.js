@@ -12,10 +12,10 @@ const Product = ({product}) => {
 
     return (
         <div onClick={getDetails} className={css.product}>
-            <div>
+            <div className={css.image}>
                 <img src={imageUrl} alt={name}/>
             </div>
-            <div className={css.image}>
+            <div >
                 <p>
                     Name :{name} <br/>
                     count: {count} <br/>

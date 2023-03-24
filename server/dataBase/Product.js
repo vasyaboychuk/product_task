@@ -5,10 +5,10 @@ const productSchema=new Schema({
     name:{type:String,required:true,trim:true, lowercase:true,minLength:2,maxLength:30},
     count:{type:Number},
     size:{
-        width:{type:Number,required:true},
-        height:{type:Number,required:true}
+        width:{type:Number},
+        height:{type:Number}
     },
-    weight:{type:String,required:true,trim:true},
+    weight:{type:String,trim:true},
 },{
     timestamps:true
 })
