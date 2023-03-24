@@ -9,10 +9,6 @@ const productSchema=new Schema({
         height:{type:Number,required:true}
     },
     weight:{type:String,required:true,trim:true},
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
-    }]
 },{
     timestamps:true
 })

@@ -1,5 +1,6 @@
 const Product = require("../dataBase/Product");
 const ApiError = require("../error/ApiError");
+const {Types} = require("mongoose");
 
 module.exports = {
     getALl: async (req, res, next) => {
@@ -18,22 +19,23 @@ module.exports = {
     getOneById: async (req, res, next) => {
         try {
             const {id} = req.params;
-            // const product=await Product.findById({_id:id})
-            const product = await Product.findById(id).populate('comments');
-            // const product = await Product.aggregate([
-            //     {
-            //         $match:{
-            //             _id:id
-            //         }
-            //     },
-            //     {
-            //         $lookup:{
-            //             from:'Comment',
-            //             localField:'_id',
-            //             foreignField:'productId',
-            //             as:'comment'
-            //         }
-            //     }
+
+            // const product = await Product.findById(id).populate('comments');
+
+            const product = await Product.aggregate([
+                {
+                   $match: {
+                            _id: new Types.ObjectId(id)
+                          },
+                },
+                {
+                    $lookup: {
+                        from: "comment",
+                        localField: "_id",
+                        foreignField: "productId",
+                        as: "comments",
+                    },
+                }])
 
 
             res.json(product)

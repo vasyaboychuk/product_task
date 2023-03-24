@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {productActions} from "../../redux";
 import Product from "../Product/Product";
+import {useEffect} from "react";
+import css from './Products.module.css';
 
 const Products = () => {
     const {products} = useSelector(state => state.productReducer);
@@ -10,7 +11,7 @@ const Products = () => {
         dispatch(productActions.getALl())
     }, [])
     return (
-        <div>
+        <div className={css.products}>
             {products.map(product=><Product key={product._id} product={product}/>)}
 
         </div>

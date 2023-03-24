@@ -1,5 +1,6 @@
 import React from 'react';
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import css from './Product.module.css';
 
 const Product = ({product}) => {
     const {_id,imageUrl, name, count, size, weight} = product;
@@ -8,16 +9,20 @@ const Product = ({product}) => {
     const getDetails=()=>{
         navigate(`${_id}`)
     }
-    console.log(product);
-    return (
-        <div onClick={getDetails}>
-            <h1>Name :{name}</h1>
-            <img src={imageUrl} alt={name}/>
-            <h3>count: {count}</h3>
-            <h3>size: height-{size.height}
-                width-{size.width}
-            </h3>
 
+    return (
+        <div onClick={getDetails} className={css.product}>
+            <div>
+                <img src={imageUrl} alt={name}/>
+            </div>
+            <div className={css.image}>
+                <p>
+                    Name :{name} <br/>
+                    count: {count} <br/>
+                    size: height-{size.height} <br/>
+                    width-{size.width}
+                </p>
+            </div>
         </div>
     );
 };
